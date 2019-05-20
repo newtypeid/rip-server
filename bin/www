@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort('5000' || '5000'); //EC2에 지정해준 포트번호가 5000이므로 5000으로 지정해줌.
 app.set('port', port);
 
 /**

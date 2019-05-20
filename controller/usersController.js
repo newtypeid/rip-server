@@ -43,15 +43,15 @@ exports.login = (isNotLoggedIn, (req, res, next) => {
     exports.signup = (isNotLoggedIn, async (req, res) => { //회원가입, post
         const {nickname, email, password} = req.body;
         try {
-          const exUser = await models.User
+          const exUser = await models.User 
           .findOne({
-            where: {email}
+            where: {email} //user db에서 email을 가져와서 비교
           });
-          if(exUser){
-            console.log('이미 했다 새끼야')
-            return res.redirect('/login')
+          if(exUser){ //입력된 값이 exUser에 있을 시
+            console.log('이미 했다 새끼야') //이미 가입 했다고 알려줌
+            return res.redirect('/login') //그리고 로그인하는 곳으로 보내버림
           }
-          const hash = await bcrypt.hash(password, 12);
+          const hash = await bcrypt.hash(password, 12); //hash 알고리즘으로 비번을 관리자도 못알아보게 해줌
           await models.User.create({
             nickname : nickname,
             email: email,
@@ -59,7 +59,7 @@ exports.login = (isNotLoggedIn, (req, res, next) => {
             createdAt: Date(),
             updatedAt: Date()
           });
-          return res.redirect('/');
+          return res.redirect('/'); //index로 보내버림
         } catch(error){
           console.log(error);
        
