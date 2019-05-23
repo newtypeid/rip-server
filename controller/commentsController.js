@@ -2,17 +2,17 @@ let models = require('../models');
 
 exports.comments_get = (req, res) => //댓글들을 불러오는 controller
   models.Comments
-  .findAll({ 
-   include:[
-   {model: models.User, 
-    attributes: ["nickname"] //댓글 쓴 사람들의 userid에서 nickname 만 가져옴 
-  }
-  ]
-  })
-  .then((comments) => {
+    .findAll({ 
+     include:[
+      {model: models.User, 
+      attributes: ["nickname"] //댓글 쓴 사람들의 userid에서 nickname 만 가져옴 
+       }
+      ]
+    })
+    .then((comments) => {
     res.status(200).json(comments) //성공
   })
-  .catch(error => {
+    .catch(error => {
     console.log(error) //실패
   })
 
@@ -33,4 +33,7 @@ exports.comments_post = (req, res) => { //댓글 작성
     .catch(error => {
         console.log(error)
     })
-}
+  }
+
+
+

@@ -1,12 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const toilet = sequelize.define('toilet', {
-    lat: {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey : true
+    },
+
+    latitude: {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: null
    },
-   lon: {
+   longitude: {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: null
@@ -15,14 +21,18 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.STRING,
      allowNull: true
    },
-   description: {
-     type: DataTypes.STRING,
+   rating: {
+     type: DataTypes.INTEGER,
+     defaultValue: 0,
      allowNull: true
    },
   },
   {
-    timestamps: true,
+    timestamps: false,
   });
+
 
   return toilet;
 };
+
+
