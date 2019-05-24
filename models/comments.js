@@ -1,18 +1,21 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const comments = sequelize.define('comments', {
-    comment : {
-      type: DataTypes.STRING,
-      allowNull: false
+  const comments = sequelize.define(
+    "comments",
+    {
+      comment: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      created_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaulValue: DataTypes.NOW
+      }
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaulValue: DataTypes.NOW
+    {
+      timestamps: false
     }
-  },
-  {
-    timestamps: false
-  });
+  );
   return comments;
 };

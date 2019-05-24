@@ -14,14 +14,29 @@
     "express": "~4.16.1",
     "express-session": "^1.16.1",
     "http-errors": "~1.6.3",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
     "morgan": "~1.9.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.3",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "nodemon": "^1.19.0",
+    "prettier": "1.17.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
