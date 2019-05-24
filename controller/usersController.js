@@ -24,20 +24,7 @@ exports.login = (isNotLoggedIn, (req, res, next) => {
   })(req, res, next); //미들웨어 내의 미들웨어에는 (req, res, next) 첨부
 })
 
-    // const {email, password} = req.body;
-    // models.User
-    // .findOne({
-    //     where: {
-    //         email: email,
-    //         password: password
-    //     }
-    // })
-    // .then(result => {
-    //     res.status(200).json(result)
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // })
+ 
    
 
     exports.signup = (isNotLoggedIn, async (req, res) => { //회원가입, post
@@ -65,20 +52,7 @@ exports.login = (isNotLoggedIn, (req, res, next) => {
        
         }
       })
-      //   models.User
-      // .create({
-      //   nickname : nickname,
-      //   email: email,
-      //   password: password,
-      //   createdAt: Date(),
-      //   updatedAt: Date()
-      // })
-      // .then(result => {
-      //     res.status(200).json(result)
-      // })
-      // .catch(err => {
-      //   console.error(err)
-      // })
+ 
       exports.logout = (isLoggedIn, (req, res) => { //logout, get
         req.logout();
         req.session.destroy();
